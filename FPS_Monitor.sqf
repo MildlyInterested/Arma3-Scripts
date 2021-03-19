@@ -1,6 +1,6 @@
 /*
 	Title: FPS Monitoring Script
-	Author: Dylan Plecki (Naught) & edited my Mildly_Interested
+	Author: Dylan Plecki (Naught) & edited by Mildly_Interested
 	Version: 1.0.2.1 - v1.0 RC b1
 	
 	Description:
