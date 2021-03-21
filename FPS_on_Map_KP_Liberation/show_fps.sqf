@@ -1,5 +1,5 @@
 /*
-All credit goes to KP_Liberation and Wyqer for creating this script
+All credit goes to KP_Liberation and Wyqer for creating this script (https://github.com/KillahPotatoes/KP-Liberation)
 
 	MIT License
 	Copyright (c) 2015 GreuhZbug, Wyqer
