@@ -7,6 +7,8 @@ All credit goes to KP_Liberation and Wyqer for creating this script
 	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+This will create markers located on the bottom left of the map stating Server and headless client FPS along with their respective local groups and units.
+
 HOW TO USE:
 1. Place down headless client modules in editor
 2. Name them "HC1", "HC2" and "HC3". More headless clients are not supported by this sctipt and will not show up
