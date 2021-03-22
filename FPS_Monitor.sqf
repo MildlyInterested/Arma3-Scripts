@@ -65,7 +65,7 @@ FPSMON_fnc_monitor = {
 					FPSMON_data = [[0,0,0],[0,0,0],[0,0,0]]; // Clear Data
 					[-2, {
 						if (isNil "FPSMON_MACHINE") then {
-							FPSMON_MACHINE = switch (true) do {
+							FPSMON_MACHINE = switch (true) do { //check if server (0), HC (1) or player (2)
 								case (isServer): {0};
 								case (!hasInterface && !isDedicated): {1};
 								default {2};
@@ -100,6 +100,7 @@ FPSMON_fnc_monitor = {
 			diag_log text "";
 			diag_log text format["----------[FPS MONIORING STARTED] [%1 Second Interval]----------", (_delay + _syncTime)];
 			diag_log text "SYNTAX:";
+
 			diag_log text "[Local FPS: minFPS - avgFPS] [Server FPS: minFPS - avgFPS Servers: Server count] [Headless FPS: avgMin - avg HCs: HC count] [Client FPS: avgMin - avg Players: Player count]";
 			diag_log text "";
 		} else {
