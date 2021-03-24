@@ -8,10 +8,3 @@ if (!isDedicated && !hasInterface && isMultiplayer) then {//everything in here g
     }
 
 };
-
-
-/*
-if !(missionNamespace getVariable ["someVar", false]) then {
-  missionNamespace setVariable ["someVar", true, true]
-}
-*/
