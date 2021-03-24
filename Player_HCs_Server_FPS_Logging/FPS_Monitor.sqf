@@ -37,15 +37,15 @@ FPSMON_fnc_monitor = {
 		_delay	= if ((count _this) > 0) then {_this select 0} else {0};
 		_syncTime = 3; // Seconds
 		if (_delay >= _syncTime) then {_delay = _delay - _syncTime};
-		if (isNil "FPSMON_init") then {
+		if (isNil "FPSMON_init") then { //this should always run? gets defined in next line, I think protects script from being called twice
 			FPSMON_init = true;
-			FPSMON_clientID = nil; //I think somewhere around here is that server issue
-			FPSMON_syncData = [-1,0,0];
+			FPSMON_clientID = nil; //var init?
+			FPSMON_syncData = [-1,0,0]; //var init?
 			[0, {
-				FPSMON_clientID = owner _this; //if server = owner something different?
-				FPSMON_clientID publicVariableClient "FPSMON_clientID";
-			}, player] call CBA_fnc_globalExecute;
-			waitUntil {!isNil "FPSMON_clientID"};
+				FPSMON_clientID = owner _this; //if server == owner something different? MIGHT BE THIS, CHECK DOCUMENTATION for publicVariableClient, maybe has to be changed to publicVariableServer
+				FPSMON_clientID publicVariableClient "FPSMON_clientID"; //sets FPSMON_clientID as owner 
+			}, player] call CBA_fnc_globalExecute; //maybe add rpt log after that to see if this gets executed
+			waitUntil {!isNil "FPSMON_clientID"}; //maybe FPSMON_clientID never gets assigned anything if executed on server
 			"FPSMON_syncData" addPublicVariableEventHandler {
 				private ["_value", "_machine", "_avgFPS", "_minFPS"];
 				_value = _this select 1;
@@ -59,7 +59,7 @@ FPSMON_fnc_monitor = {
 				};
 			};
 		};
-		if ((_delay > 0) && (isNil "FPSMON_handle")) then {
+		if ((_delay > 0) && (isNil "FPSMON_handle")) then { //this in here should be the stuff that gets executed periodically
 			FPSMON_handle = [_syncTime, _delay] spawn {
 				waitUntil {
 					FPSMON_data = [[0,0,0],[0,0,0],[0,0,0]]; // Clear Data
