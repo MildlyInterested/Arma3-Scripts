@@ -39,10 +39,10 @@ FPSMON_fnc_monitor = {
 		if (_delay >= _syncTime) then {_delay = _delay - _syncTime};
 		if (isNil "FPSMON_init") then {
 			FPSMON_init = true;
-			FPSMON_clientID = nil;
+			FPSMON_clientID = nil; //I think somewhere around here is that server issue
 			FPSMON_syncData = [-1,0,0];
 			[0, {
-				FPSMON_clientID = owner _this;
+				FPSMON_clientID = owner _this; //if server = owner something different?
 				FPSMON_clientID publicVariableClient "FPSMON_clientID";
 			}, player] call CBA_fnc_globalExecute;
 			waitUntil {!isNil "FPSMON_clientID"};
@@ -66,14 +66,14 @@ FPSMON_fnc_monitor = {
 					[-2, {
 						if (isNil "FPSMON_MACHINE") then {
 							FPSMON_MACHINE = switch (true) do { //check if server (0), HC (1) or player (2)
-								case (isServer): {0};
-								case (!hasInterface && !isDedicated): {1};
+								case (isServer): {0}; //server check
+								case (!hasInterface && !isDedicated): {1}; //HC check
 								default {2};
 							};
 						};
 						FPSMON_syncData = [FPSMON_MACHINE, diag_fps, diag_fpsmin];
 						(_this select 0) publicVariableClient "FPSMON_syncData";
-					}, [FPSMON_clientID]] call CBA_fnc_globalExecute;
+					}, [FPSMON_clientID]] call CBA_fnc_globalExecute; //maybe around here? if clientID == server script does not get executed anywhere else? .--> no data from players or HCs
 					uisleep (_this select 0); // Sync Time
 					private ["_output"];
 					_output = [];
@@ -84,11 +84,11 @@ FPSMON_fnc_monitor = {
 							(_x select 2)
 						];
 					} forEach FPSMON_data;
-					hintSilent format (["Local FPS: %1 - %2\nServer FPS: %3 - %4 / %5\nHeadless FPS: %6 - %7 / %8\nClient FPS: %9 - %10 / %11",
-						round(diag_fpsmin),
-						round(diag_fps)
-					] + _output);
-					diag_log text format (["[Local FPS: %1 - %2] [Server FPS: %3 - %4 Servers: %5] [Headless FPS: %6 - %7 HCs: %8] [Client FPS: %9 - %10 Players: %11]",
+					hintSilent format (["Local FPS: %1 - %2\nServer FPS: %3 - %4 / %5\nHeadless FPS: %6 - %7 / %8\nClient FPS: %9 - %10 / %11", //GUI hint
+						round(diag_fpsmin), //%1
+						round(diag_fps) //%2
+					] + _output); //%3-%11
+					diag_log text format (["[Local FPS: %1 - %2] [Server FPS: %3 - %4 Servers: %5] [Headless FPS: %6 - %7 HCs: %8] [Client FPS: %9 - %10 Players: %11]", //written to log
 						round(diag_fpsmin),
 						round(diag_fps)
 					] + _output);
@@ -96,18 +96,17 @@ FPSMON_fnc_monitor = {
 					false;
 				};
 			};
-			hint format["FPS Monitoring Started.\n%1 Second Interval.", (_delay + _syncTime)];
-			diag_log text "";
-			diag_log text format["----------[FPS MONIORING STARTED] [%1 Second Interval]----------", (_delay + _syncTime)];
+			hint format["FPS Monitoring Started.\n%1 Second Interval.", (_delay + _syncTime)]; //shows hint in top right GUI first time script is called
+			diag_log text ""; //empty line in log
+			diag_log text format["----------[FPS MONIORING STARTED] [%1 Second Interval]----------", (_delay + _syncTime)]; //show hint in log file first time script is called, same as diag_log text below
 			diag_log text "SYNTAX:";
-
 			diag_log text "[Local FPS: minFPS - avgFPS] [Server FPS: minFPS - avgFPS Servers: Server count] [Headless FPS: avgMin - avg HCs: HC count] [Client FPS: avgMin - avg Players: Player count]";
 			diag_log text "";
 		} else {
 			terminate FPSMON_handle;
 			FPSMON_handle = nil;
-			hint "FPS Monitoring Stopped.";
-			diag_log text "";
+			hint "FPS Monitoring Stopped."; //shows hint in top right GUI second time script is called (second script call terminates the script)
+			diag_log text ""; //shows hint in log file second time script is called (second script called terminates the script)
 			diag_log text "--------------------[FPS MONIORING STOPPED]--------------------";
 			diag_log text "";
 		};
