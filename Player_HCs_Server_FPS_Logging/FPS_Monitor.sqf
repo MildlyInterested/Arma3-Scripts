@@ -44,6 +44,7 @@ FPSMON_fnc_monitor = {
 			[0, {
 				FPSMON_clientID = owner _this; //will retun 0 on server, if server == owner something different? MIGHT BE THIS, CHECK DOCUMENTATION for publicVariableClient, maybe has to be changed to publicVariableServer
 				FPSMON_clientID publicVariableClient "FPSMON_clientID"; //sends to client, but server executed, possible cause, see line 75
+				//FPSMON_clientID publicVariableServer "FPSMON_clientID"; //changed
 			}, player] call CBA_fnc_globalExecute; //maybe add rpt log after that to see if this gets executed
 			waitUntil {!isNil "FPSMON_clientID"}; //gets executed FPSMON_clientID==0
 			"FPSMON_syncData" addPublicVariableEventHandler {
@@ -53,7 +54,7 @@ FPSMON_fnc_monitor = {
 				_avgFPS = _value select 1;
 				_minFPS = _value select 2;
 				if ((_machine >= 0) && {_machine < (count FPSMON_data)}) then {
-					(FPSMON_data select _machine) set [0, (((FPSMON_data select _machine) select 0) + _avgFPS)];
+					(FPSMON_data select _machine) set [0, (((FPSMON_data select _machine) select 0) + _avgFPS)]; //pretty sure this stuff counts servers, headless clients and players
 					(FPSMON_data select _machine) set [1, (((FPSMON_data select _machine) select 1) + _minFPS)];
 					(FPSMON_data select _machine) set [2, (((FPSMON_data select _machine) select 2) + 1)];
 				};
@@ -72,7 +73,8 @@ FPSMON_fnc_monitor = {
 							};
 						};
 						FPSMON_syncData = [FPSMON_MACHINE, diag_fps, diag_fpsmin];
-						(_this select 0) publicVariableClient "FPSMON_syncData"; //THIS right here might be it, it sends it to the client computer, needs to be sent to SERVER
+						//(_this select 0) publicVariableClient "FPSMON_syncData"; //THIS right here might be it, it sends it to the client computer, needs to be sent to SERVER
+						/*(_this select 0)*/ publicVariableServer "FPSMON_syncData"; //changed
 					}, [FPSMON_clientID]] call CBA_fnc_globalExecute; //should work just fine, simply calls {} part on everyone with parameter FPSMON_clientID, does that mean line above sends it to FPSMON_clientID defined in line 45 aka to whoever called the script?
 					uisleep (_this select 0); // Sync Time
 					private ["_output"];

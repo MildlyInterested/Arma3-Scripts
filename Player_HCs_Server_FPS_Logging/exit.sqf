@@ -1,1 +1,2 @@
-15 call FPSMON_fnc_monitor;
+diag_log text "--------------------[MISSION STOPPED]--------------------";
+call FPSMON_fnc_monitor;
