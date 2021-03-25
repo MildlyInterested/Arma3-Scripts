@@ -100,7 +100,7 @@ FPSMON_fnc_monitor = {
 
 
 					//following CSV friendly output, uncomment if wanted, to import into other software use the powershell script to export FPS data
-					diag_log text format ([";[FPS_Mon];%1;%2;;%3;%4;%5;%6;%7;%8;%9;%10;%11]", //written to log
+					diag_log text format ([";[FPS_Mon];%1;%2;;%3;%4;%5;%6;%7;%8;%9;%10;%11", //written to log
 						round(diag_fpsmin),
 						round(diag_fps)
 					] + _output);
