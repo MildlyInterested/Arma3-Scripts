@@ -1,0 +1,1 @@
+Get-Content .\in.txt | Where-Object {$_ -match 'FPS_Mon'} | Set-Content out.csv
