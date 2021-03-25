@@ -100,7 +100,7 @@ FPSMON_fnc_monitor = {
 
 
 					//following CSV friendly output, uncomment if wanted, to import into other software use the powershell script to export FPS data
-					diag_log text format ([";[FPS_Mon];%1;%2;;%3;%4;%5;%6;%7;%8;%9;%10;%11", //written to log
+					diag_log text format ([";[FPS_Mon];%1;%2;%3;%4;%5;%6;%7;%8;%9;%10;%11", //written to log
 						round(diag_fpsmin),
 						round(diag_fps)
 					] + _output);
@@ -120,7 +120,7 @@ FPSMON_fnc_monitor = {
 
 			//following CSV friendly output, uncomment if wanted, to import into other software use the powershell script to export FPS data from logfile
 			diag_log text format["----------[FPS MONIORING STARTED] [%1 Second Interval] [CSV option]----------", (_delay + _syncTime)];
-			diag_log text ";[FPS_Mon];Local_minFPS;Local_avgFPS;Server_minFPS;Server_avgFPS;Server_count;HC_avg_min_FPS;HC_avg_avgFPS;HC_Count;Player_avg_minFPS;Player_avg_avgFPS;Player_Count"; //there is one line left to that! its local time but can't give it title
+			diag_log text ";[FPS_Mon];Local_minFPS;Local_avgFPS;Server_minFPS;Server_avgFPS;Server_count;HC_avg_minFPS;HC_avg_avgFPS;HC_Count;Player_avg_minFPS;Player_avg_avgFPS;Player_Count"; //there is one line left to that! its local time but can't give it title
 		} else {
 			terminate FPSMON_handle;
 			FPSMON_handle = nil;
