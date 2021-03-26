@@ -1,19 +1,25 @@
 /*
-	Title: FPS Monitoring Script
+	Title: FPS Monitoring & Logging Script
 	Author: Dylan Plecki (Naught)
 	https://github.com/dylanplecki/ArmaScripts/tree/master/Arma%202/FPS%20Monitor
 	https://forums.bohemia.net/forums/topic/161247-fps-monitoring-script/
-	& edited by Mildly_Interested
+	& edited by Mildly_Interested 
+	https://github.com/MildlyInterested/Arma3-Stuff/tree/main/Player_HCs_Server_FPS_Logging
 	Version: 1.0.2.1 - v1.0 RC b1
 	
 	Description:
-		Monitors and displays FPS of the server and clients on
-		a regular interval with a silent hint in this format:
+
+	Default Configeration:
+		Script will start 30 seconds after mission start with a 15 second monitoring interval (and should be ended after mission stop)
+	
+	
+	Monitors and displays FPS of the server and clients on
+		a regular interval with a silent hint in this format: (DEFAULT config only outputs to log file, read comments if you want to change that!)
 			Local FPS: minFPS - avgFPS
 			Server FPS: minFPS - avgFPS / count
 			Headless FPS: avgMinFPS - avgAvgFPS / count
 			Client FPS: avgMinFPS - avgAvgFPS / count
-		This script can be loaded and executed on any machine,
+		This script can be loaded and executed on any machine, (DEFAULT config is server executed, read comments if you need client execution!)
 		without a need to install anything on the others.
 	
 	Syntax:
@@ -23,7 +29,6 @@
 		
 	Requirements:
 		Arma 3 1.0
-		Arma 2 OA 1.62
 		CBA A2/OA/A3 1.0
 	
 	License:
@@ -43,10 +48,13 @@
 			- [scripts]
 				- FPS_Monitor.sqf
 
-		2. Place down init.sqf, initserver.sqf and exit.sqf in the root of your mission folder. If they already exist copy the entries of the provided files to the bottom of your init.sqf, initserver.sqf and exit.sqf
-		3. If you want to use the powershell script type in cd <path to your folder> eg. "cd C:\Users\Mildly\Downloads" and then rename the RPT you want to extract data from to "in.txt"
-		4. Copy paste the line from "clean_rpt.ps1" into your powershell and run it
-		5. Make sure to replace in the csv the time in the first line (the "20:23:59") with "time" and you're done. First line are the collumn names and everything below should be data for you to look at.
+		2. Place down init.sqf, initserver.sqf and exit.sqf in the root of your mission folder. If they already exist copy the entries of the provided files to the bottom of your init.sqf, initserver.sqf and exit.sqf. 
+
+		Below only applies to CSV option
+		1. 	If you want to use the powershell script type in cd <path to your folder> eg. "cd C:\Users\Mildly\Downloads" and then rename the RPT you want to extract data from to "in.txt"
+		2. 	Copy paste the line from "clean_rpt.ps1" into your powershell and run it
+		3. 	Make sure to replace in the csv the time in the first line (the "20:23:59") with "time" and you're done. 
+			First line are the collumn names and everything below should be data for you to look at.
 
 */
 
