@@ -1,4 +1,8 @@
-HOW TO USE:
+Default Configeration:
+Script will start 30 seconds after mission start with a 15 second monitoring interval (and should be ended after mission stop)
+Prints server, headless client, player FPS and more to RPT file.
+
+**HOW TO USE:**
 1. Put this script (FPS_Monitor.sqf) in a folder called "scripts" into the root of your missions folder 
     Sould look like this:
 	- [YourAwesomeMission.MAPNAME]
