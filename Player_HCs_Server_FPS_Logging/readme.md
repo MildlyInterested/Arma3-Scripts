@@ -13,7 +13,7 @@ Prints server, headless client, player FPS and more to RPT file.
 		- [scripts]
 			- FPS_Monitor.sqf
 
-2. Place down init.sqf, initserver.sqf and exit.sqf in the root of your mission folder. If they already exist copy the entries of the provided files to the bottom of your init.sqf, initserver.sqf and exit.sqf. 
+2. Copy init.sqf, initserver.sqf and exit.sqf in the root of your mission folder (like file structure above). If they already exist copy the entries of the provided files to the bottom of your init.sqf, initserver.sqf and exit.sqf. 
 
 Below only applies to CSV option
 1. 	If you want to use the powershell script type in cd **path to your RPT folder** eg. "cd C:\Users\Mildly\Downloads" and then rename the RPT you want to extract data from to "in.txt"

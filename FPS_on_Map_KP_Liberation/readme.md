@@ -12,4 +12,4 @@ This will create markers located on the bottom left of the map stating Server an
 		- [scripts]
 			- show_fps.sqf
 
-4. Place down init.sqf and initserver.sqf in the root of your mission folder. If they already exist copy the entries of the provided files to the bottom of your init.sqf and initserver.sqf 
+4. Copy init.sqf and initserver.sqf in the root of your mission folder (like file structure above). If they already exist copy the entries of the provided files to the bottom of your init.sqf and initserver.sqf 
