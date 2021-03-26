@@ -1,3 +1,5 @@
+This will create markers located on the bottom left of the map stating Server and headless client FPS along with their respective local groups and units.
+
 **HOW TO USE**
 1. Place down headless client modules in editor
 2. Name them "HC1", "HC2" and "HC3". More headless clients are not supported by this sctipt and will not show up
