@@ -7,7 +7,7 @@ MaxMsgSend = 128;
 MaxSizeGuaranteed = 512;
 MaxSizeNonguaranteed = 256;
 
-MinErrorToSend = 0.001
+MinErrorToSend = 0.001;
 MinErrorToSendNear = 0.01;
 
 MaxCustomFileSize = 0; //not mentioned so set to 0
@@ -23,7 +23,7 @@ MaxMsgSend = 128; //default
 MaxSizeGuaranteed = 512; //default
 MaxSizeNonguaranteed = 256; //default
 
-MinErrorToSend = 0.001 //default
+MinErrorToSend = 0.001; //default
 MinErrorToSendNear = 0.01; //default
 
 MaxCustomFileSize = 0; //not mentioned so set to 0
@@ -39,7 +39,7 @@ MaxMsgSend = 256; // double default
 MaxSizeGuaranteed = 512; //default
 MaxSizeNonguaranteed = 256; //default
 
-MinErrorToSend = 0.001 //default
+MinErrorToSend = 0.001; //default
 MinErrorToSendNear = 0.01; //default
 
 MaxCustomFileSize = 160000; //0.16 MByte  not default but feels right
@@ -55,7 +55,7 @@ MaxMsgSend = 256; // double default
 MaxSizeGuaranteed = 512; //default
 MaxSizeNonguaranteed = 256; //default
 
-MinErrorToSend = 0.001 //default
+MinErrorToSend = 0.001; //default
 MinErrorToSendNear = 0.01; //default
 
 MaxCustomFileSize = 320000; //0.32 MByte  not default but feels right
@@ -71,7 +71,7 @@ MaxMsgSend = 256; //double default
 MaxSizeGuaranteed = 512; //default
 MaxSizeNonguaranteed = 256; //default
 
-MinErrorToSend = 0.001 //default
+MinErrorToSend = 0.001; //default
 MinErrorToSendNear = 0.01; //default
 
 MaxCustomFileSize = 320000; //0.32 MByte double from previous preset because why not
@@ -87,7 +87,7 @@ MaxMsgSend = 512; //4x default
 MaxSizeGuaranteed = 512; //default
 MaxSizeNonguaranteed = 256; //default
 
-MinErrorToSend = 0.001 //default
+MinErrorToSend = 0.001; //default
 MinErrorToSendNear = 0.01; //default
 
 MaxCustomFileSize = 640000; //0.64 MByte double from previous preset because why not
