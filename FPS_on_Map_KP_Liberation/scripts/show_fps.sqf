@@ -13,32 +13,42 @@ This will create markers located on the bottom left of the map stating Server an
 private _sourcestr = "Server";
 private _position = 0;
 
+/*
+ToDo: deal with HC disconnects during mission time (atm marker will stay)
+*/
+
+sleep (random 30);
+
 if (!isServer) then {
-    if (!isNil "HC1") then {
-        if (!isNull HC1) then {
-            if (local HC1) then {
-                _sourcestr = "HC1";
-                _position = 1;
-            };
-        };
+    if (isNil "HC1") exitWith {
+        HC1 = true;
+        publicVariable "HC1";
+        _sourcestr = "HC1";
+        _position = 1;
     };
-
-    if (!isNil "HC2") then {
-        if (!isNull HC2) then {
-            if (local HC2) then {
-                _sourcestr = "HC2";
-                _position = 2;
-            };
-        };
+    if (isNil "HC2") exitWith {
+        HC2 = true;
+        publicVariable "HC2";
+        _sourcestr = "HC2";
+        _position = 2;
     };
-
-    if (!isNil "HC3") then {
-        if (!isNull HC3) then {
-            if (local HC3) then {
-                _sourcestr = "HC3";
-                _position = 3;
-            };
-        };
+    if (isNil "HC3") exitWith {
+        HC3 = true;
+        publicVariable "HC3";
+        _sourcestr = "HC3";
+        _position = 3;
+    };
+    if (isNil "HC4") exitWith {
+        HC4 = true;
+        publicVariable "HC4";
+        _sourcestr = "HC4";
+        _position = 4;
+    };
+    if (isNil "HC5") exitWith {
+        HC5 = true;
+        publicVariable "HC5";
+        _sourcestr = "HC5";
+        _position = 5;
     };
 };
 
@@ -55,7 +65,7 @@ while {true} do {
     _myfpsmarker setMarkerColor "ColorGREEN";
     if (_myfps < 30) then {_myfpsmarker setMarkerColor "ColorYELLOW";};
     if (_myfps < 20) then {_myfpsmarker setMarkerColor "ColorORANGE";};
-    if (_myfps < 10) then {_myfpsmarker setMarkerColor GRLIB_color_enemy_bright;};
+    if (_myfps < 10) then {_myfpsmarker setMarkerColor "ColorRED";};
 
     _myfpsmarker setMarkerText format ["%1: %2 fps, %3 local groups, %4 local units", _sourcestr, (round (_myfps * 100.0)) / 100.0, _localgroups, _localunits];
 
