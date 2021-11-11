@@ -2,7 +2,7 @@ This will create markers located on the bottom left of the map stating Server an
 
 **HOW TO USE**
 1. Place down headless client modules in editor
-2. Name them "HC1", "HC2" and "HC3". More headless clients are not supported by this sctipt and will not show up
+2. (Name them "HC1", "HC2" and "HC3". More headless clients are not supported by this sctipt and will not show up) ignore that, not true anymore
 3. Put this script (show_fps.sqf) in a folder called "scripts" into the root of your missions folder 
 	Sould look like this:
 	- [YourAwesomeMission.MAPNAME]
