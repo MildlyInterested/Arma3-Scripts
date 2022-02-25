@@ -20,7 +20,9 @@ Karmakut, 100 players, 1Gbit
 Frenki#3671, armasrbija.rs, ~50 players
 
 Crowdedlight@Slack, 92 players
+
 16AA, 75 players, 1Gbit
+
 Let me know if it worked for you and I'll add you to this list.
 
 ### Arma Default Values
