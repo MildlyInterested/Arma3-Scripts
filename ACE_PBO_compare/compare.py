@@ -1,3 +1,4 @@
+#OUTDATED, USE MY OTHER REPO https://github.com/MildlyInterested/compare_lists
 import tkinter as tk
 
 root = tk.Tk()
