@@ -10,6 +10,7 @@ def whiteSpaceData(leading_up, line, follow=" "): #find number thats following t
 
 print('Please enter path to/drag preset file into here:')
 path_2_file = input()
+#TODO make this neater
 #clean up if user dragged file into entry and didn't enter path
 if path_2_file.find(' ',0,5) > 0:
     path_2_file = path_2_file.replace(' ','',1)
@@ -20,6 +21,9 @@ if path_2_file[-1] == '\"' or path_2_file[-1] == '\'':
 if path_2_file[0] == '\"' or path_2_file[0] == '\'':
     path_2_file = path_2_file[1:]
 print(path_2_file)
+
+#TODO save all inputs for rerun
+#TODO ask if save should be used
 
 with open(path_2_file, 'r') as file:
     for line in file:
